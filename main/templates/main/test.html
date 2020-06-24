@@ -9,12 +9,45 @@
     <script src="../../static/main/js/jquery-3.5.0.js" type="text/javascript" text="javascript"></script>
     <script src="../../static/main/js/numeric.js" type="text/javascript" text="javascript"></script>
     <title>Jaebin Project</title>
+    <Style>
+        .wrap header nav{
+            margin-top:20px;
+        }
+        .wrap .food_list .food_list_wrap form{
+            margin-left:424px;
+        }
+        .wrap .food_list .food_list_wrap form label{
+            color:#fff;
+            margin-right:24px;
+        }
+        .wrap header{
+            position:relative;
+        }
+        .wrap .login{
+            position:absolute;
+            top:30px;
+            left:1050px;
+        }
+        .wrap .login span{
+            font-size:14px;
+            float:left;
+            color: #53544f;
+            font-weight:500;
+        }
+        .wrap .login a:nth-child(2) span{
+            margin-left:6px;
+        }
+    </Style>
 </head>
 <body>
     <div class="wrap">
         <header>
             <div class="logo">
-                <h1><a href="{% url 'main' %}"><img src="../static/main/img/logo.png" alt=""/></a></h1>
+                <h1><a href="{% url 'main' %}"><img src="../../static/main/img/logo.png" alt=""/></a></h1>
+            </div>
+            <div class="login">
+                <a href="{% url 'login' %}"><span>로그인</span></a>
+                <a href="{% url 'new_user' %}"><span>회원가입</span></a>
             </div>
             <nav class="clearfix">
                 <div class="find">
@@ -117,7 +150,7 @@
                     </tr>
                 </table>
             </div>
-            <button id="close">Close</button>
+            <button class="close">Close</button>
         </div>
         <div class="modal modal2">
             <div class="modal_title">
@@ -184,7 +217,7 @@
                     </tr>
                 </table>
             </div>
-            <button id="close">Close</button>
+            <button class="close">Close</button>
         </div>
         <div class="modal modal3">
             <div class="modal_title">
@@ -256,7 +289,7 @@
                     </tr>
                 </table>
             </div>
-            <button id="close">Close</button>
+            <button class="close">Close</button>
         </div>
         <div class="diary">
             <h3><img src="../static/main/img/from_the_health_diary.png" alt=""/></h3>

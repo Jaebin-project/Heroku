@@ -4,7 +4,7 @@ from .forms import PostForm, CommentForm
 from .models import Post, Comment
 
 def index(request):
-    posts = Post.objects
+    posts = Post.objects.order_by('-pub_date')  # 최신순으로 정렬
     return render(request, 'health_diary/index.html', {'posts': posts})
 
 def postform(request, post=None):
@@ -17,7 +17,7 @@ def postform(request, post=None):
             return redirect('health_diary')
     else:
         form = PostForm(instance=post)
-        return render(request, 'health_diary/new.html', {'form': form})
+        return render(request, 'health_diary/write.html', {'form': form})
 
 def edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -41,7 +41,7 @@ def detail(request, post_id):
                 return redirect('detail_hd', post_id)
         else:
             form = CommentForm()
-            return render(request, 'health_diary/detail.html', {'post': post_detail, 'form': form})
+            return render(request, 'health_diary/content.html', {'post': post_detail, 'form': form})
 
 # def edit_comment(request, comment_id):
 #     comment = get_object_or_404(Comment, pk=comment_id)
